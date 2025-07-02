@@ -176,7 +176,6 @@ def menu_principal():
                 print("Option invalide. Veuillez choisir entre 0 et 6.")
         except ValueError:
             print("Veuillez saisir un nombre valide.")
-
 # Point d'entrée du programme
 if __name__ == "__main__":
     menu_principal()
