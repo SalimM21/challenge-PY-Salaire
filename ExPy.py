@@ -100,7 +100,6 @@ x1 = float(input("Entrez x1 : "))
 y1 = float(input("Entrez y1 : "))
 x2 = float(input("Entrez x2 : "))
 y2 = float(input("Entrez y2 : "))
-
 delta_x = x2 - x1
 delta_y = y2 - y1
 
