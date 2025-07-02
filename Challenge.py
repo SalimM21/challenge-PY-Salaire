@@ -1,4 +1,7 @@
 
+import math
+
+
 def horaire_sup():
      
     try:
@@ -120,13 +123,13 @@ def mot_le_plus_long():
 def compter_occurrences():
     """Fonction 6: Compte les occurrences de chaque caractère dans une chaîne"""
     print("\n=== COMPTAGE DES OCCURRENCES ===")
-    Ch = input("Saisissez une chaîne de caractères Ch: ")
+    ch = input("Saisissez une chaîne de caractères Ch: ")
     
     # Dictionnaire pour stocker les occurrences
     occurrences = {}
     
     # Compter chaque caractère
-    for caractere in Ch:
+    for caractere in ch:
         if caractere in occurrences:
             occurrences[caractere] += 1
         else:
@@ -136,9 +139,9 @@ def compter_occurrences():
     print("Occurrences des caractères:")
     for caractere, nombre in sorted(occurrences.items()):
         if caractere == ' ':
-            print(f"Le caractère 'espace' figure {nombre} fois dans la chaîne Ch.")
+            print(f"Le caractère 'espace' figure {nombre} fois dans la chaîne ch.")
         else:
-            print(f"Le caractère \"{caractere}\" figure {nombre} fois dans la chaîne Ch.")
+            print(f"Le caractère \"{caractere}\" figure {nombre} fois dans la chaîne ch.")
 
 def menu_principal():
     """Menu principal pour exécuter les différentes fonctions"""
