@@ -1,7 +1,6 @@
 
 import math
 
-
 def horaire_sup():
      
     try:
@@ -100,48 +99,29 @@ def verifier_carre_parfait():
         print("Veuillez saisir un nombre entier valide.")
 
 def afficher_caracteres():
-    """Fonction 4: Affiche chaque caractère d'une chaîne un par un"""
     print("\n=== AFFICHAGE CARACTÈRES ===")
     chaine = input("Saisissez une chaîne de caractères: ")
-    print("Caractères de la chaîne:")
-    for i, caractere in enumerate(chaine):
-        print(f"Position {i}: '{caractere}'")
+    for caractere in chaine:
+        print(caractere)
 
 def mot_le_plus_long():
-    """Fonction 5: Trouve et affiche le mot le plus long d'une phrase"""
     print("\n=== MOT LE PLUS LONG ===")
     phrase = input("Saisissez une phrase: ")
     mots = phrase.split()
     
-    if not mots:
-        print("Aucun mot trouvé dans la phrase.")
-        return
+    mot_long = ""
+    for mot in mots:
+        if len(mot) > len(mot_long):
+            mot_long = mot
     
-    mot_long = max(mots, key=len)
-    print(f"Le mot le plus long est: '{mot_long}' ({len(mot_long)} caractères)")
+    print(f"Le mot le plus long est: '{mot_long}'")
 
 def compter_occurrences():
-    """Fonction 6: Compte les occurrences de chaque caractère dans une chaîne"""
     print("\n=== COMPTAGE DES OCCURRENCES ===")
     ch = input("Saisissez une chaîne de caractères Ch: ")
     
-    # Dictionnaire pour stocker les occurrences
-    occurrences = {}
-    
-    # Compter chaque caractère
-    for caractere in ch:
-        if caractere in occurrences:
-            occurrences[caractere] += 1
-        else:
-            occurrences[caractere] = 1
-    
-    # Afficher les résultats
-    print("Occurrences des caractères:")
-    for caractere, nombre in sorted(occurrences.items()):
-        if caractere == ' ':
-            print(f"Le caractère 'espace' figure {nombre} fois dans la chaîne ch.")
-        else:
-            print(f"Le caractère \"{caractere}\" figure {nombre} fois dans la chaîne ch.")
+    for caractere in sorted(set(ch)):
+        print(f"Le caractère \"{caractere}\" figure {ch.count(caractere)} fois dans la chaîne ch.")
 
 def menu_principal():
     """Menu principal pour exécuter les différentes fonctions"""
