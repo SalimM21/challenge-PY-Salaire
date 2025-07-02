@@ -35,7 +35,6 @@ def horaire_sup():
         print(f"\nERREUR : {e}")
         print("Veuillez relancer le programme avec des valeurs valides.")
 
-
 # -----------------------------------------------------------
 # Challenge : Fonction calculation() – somme et différence
 def calculation(a, b):
@@ -59,8 +58,10 @@ def calcul_factorielle():
             return
         
         factorielle = 1
-        for i in range(1, n + 1):
+        i = 1
+        while i <= n:
             factorielle *= i
+            i += 1
         
         print(f"La factorielle de {n} est: {factorielle}")
     except ValueError:
@@ -68,19 +69,19 @@ def calcul_factorielle():
 
 # -------------------------
 def table_multiplication():
-    """Fonction 2: Affiche la table de multiplication d'un nombre m de 1 à 10"""
-    print("\n=== TABLE DE MULTIPLICATION ===")
     try:
         m = int(input("Saisissez un nombre entier m: "))
         print(f"Table de multiplication de {m}:")
-        for i in range(1, 11):
-            print(f"{m} × {i} = {m * i}")
+        multiplicateur = 1
+        while multiplicateur <= 10:
+            resultat = m * multiplicateur
+            print(f"{m} × {multiplicateur} = {resultat}")
+            multiplicateur += 1
     except ValueError:
         print("Veuillez saisir un nombre entier valide.")
 
 def verifier_carre_parfait():
-    """Fonction 3: Vérifie si un nombre L est un carré parfait"""
-    print("\n=== VÉRIFICATION CARRÉ PARFAIT ===")
+    
     try:
         L = int(input("Saisissez un nombre entier L: "))
         if L < 0:
