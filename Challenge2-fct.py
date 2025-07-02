@@ -1,41 +1,19 @@
 
+from ast import Return
 import math
 
-def horaire_sup():
-     
-    try:
-        # Saisie des données
-        nom = input("Entrez votre nom : ").strip()
-        if not nom:
-            raise ValueError("Le nom ne peut pas être vide")
-        
-        salaire_horaire = float(input("Entrez votre salaire horaire (dh) : "))
-        if salaire_horaire <= 0:
-            raise ValueError("Le salaire horaire doit être positif")
-        
-        heures_travaillees = float(input("Entrez le nombre d'heures travaillées : "))
-        if heures_travaillees < 0:
-            raise ValueError("Les heures travaillées ne peuvent pas être négatives")
+def horaire_sup(mon, salaire_horaire, heures_travaillees):
 
         # Calcul du salaire
-        if heures_travaillees > 40:
-            heures_supp = heures_travaillees - 40
-            salaire_total = (40 * salaire_horaire) + (heures_supp * salaire_horaire * 1.5)
-            detail = f"{heures_supp} heures sup à {salaire_horaire*1.5:.2f} dh/h"
-        else:
-            salaire_total = heures_travaillees * salaire_horaire
-            detail = "Pas d'heures supplémentaires"
+    if heures_travaillees > 40:
+        heures_supp = heures_travaillees - 40
+        salaire_total = (40 * salaire_horaire) + (heures_supp * salaire_horaire * 1.5)
+        detail = f"{heures_supp} heures sup à {salaire_horaire*1.5:.2f} dh/h"
+    else:
+        salaire_total = heures_travaillees * salaire_horaire
+        detail = "Pas d'heures supplémentaires"
 
-        # Affichage des résultats
-        print("\n" + "-"*30)
-        print(f"NOM : {nom.upper()}")
-        print(f"SALAIRE TOTAL : {salaire_total:.2f} dh")
-        print(f"DÉTAIL : {detail}")
-        print("-"*30)
-
-    except ValueError as e:
-        print(f"\nERREUR : {e}")
-        print("Veuillez relancer le programme avec des valeurs valides.")
+Return salaie_total, detail # type: ignore
 
 # -----------------------------------------------------------
 # Challenge : Fonction calculation() – somme et différence
@@ -44,34 +22,32 @@ def calculation(a, b):
     difference = a - b
     return somme, difference
   
-# Appel de la fonction
-if __name__ == "__main__":
-    horaire_sup()
-    calculation(5, 6)
+
+horaire_sup("salim", 100, 45)
+print(calculation(5, 6))
 
 # -----------------------------------------------------------
 # Challenge : Mini-projets algorithmiques regroupés
 
 def calcul_factorielle():
-    try:
-        n = int(input("Saisissez un nombre entier n: "))
-        if n < 0:
-            print("La factorielle n'est pas définie pour les nombres négatifs.")
-            return
-        
-        factorielle = 1
-        i = 1
-        while i <= n:
-            factorielle *= i
-            i += 1
-        
-        print(f"La factorielle de {n} est: {factorielle}")
-    except ValueError:
-        print("Veuillez saisir un nombre entier valide.")
 
-# -------------------------
+    n = int(input("Saisissez un nombre entier n: "))
+    if n < 0:
+        print("La factorielle n'est pas définie pour les nombres négatifs.")
+        return
+        
+    factorielle = 1
+    i = 1
+    while i <= n:
+        factorielle *= i
+        i += 1
+        
+    print(f"La factorielle de {n} est: {factorielle}")
+
+
+# -----------------------------------------------------------
 def table_multiplication():
-    try:
+
         m = int(input("Saisissez un nombre entier m: "))
         print(f"Table de multiplication de {m}:")
         multiplicateur = 1
@@ -79,12 +55,10 @@ def table_multiplication():
             resultat = m * multiplicateur
             print(f"{m} × {multiplicateur} = {resultat}")
             multiplicateur += 1
-    except ValueError:
-        print("Veuillez saisir un nombre entier valide.")
 
+# -----------------------------------------------------------
 def verifier_carre_parfait():
-    
-    try:
+        
         L = int(input("Saisissez un nombre entier L: "))
         if L < 0:
             print(f"{L} n'est pas un carré parfait (nombre négatif).")
@@ -95,16 +69,18 @@ def verifier_carre_parfait():
             print(f"{L} est un carré parfait (√{L} = {racine}).")
         else:
             print(f"{L} n'est pas un carré parfait.")
-    except ValueError:
-        print("Veuillez saisir un nombre entier valide.")
 
+# -----------------------------------------------------------
 def afficher_caracteres():
+    
     print("\n=== AFFICHAGE CARACTÈRES ===")
     chaine = input("Saisissez une chaîne de caractères: ")
     for caractere in chaine:
         print(caractere)
 
+# -----------------------------------------------------------
 def mot_le_plus_long():
+    
     print("\n=== MOT LE PLUS LONG ===")
     phrase = input("Saisissez une phrase: ")
     mots = phrase.split()
@@ -116,13 +92,16 @@ def mot_le_plus_long():
     
     print(f"Le mot le plus long est: '{mot_long}'")
 
+# -----------------------------------------------------------
 def compter_occurrences():
+    
     print("\n=== COMPTAGE DES OCCURRENCES ===")
     ch = input("Saisissez une chaîne de caractères Ch: ")
     
     for caractere in sorted(set(ch)):
         print(f"Le caractère \"{caractere}\" figure {ch.count(caractere)} fois dans la chaîne ch.")
 
+# -----------------------------------------------------------
 def menu_principal():
     """Menu principal pour exécuter les différentes fonctions"""
     while True:
